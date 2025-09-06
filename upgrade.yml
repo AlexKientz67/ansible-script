@@ -1,14 +1,9 @@
 ---
-- name: Update servers
-  hosts: all
-  become: yes
-  tasks:
-    - name: Update apt cache
-      apt:
-        update_cache: yes
+- hosts: all
 
-    - name: Upgrade all packages
+  become: true
+  tasks:
+    - name: update apt packages
       apt:
-        upgrade: dist
-        autoremove: yes
-        autoclean: yes
+        upgrade: yes
+        update_cache: yes
