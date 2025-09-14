@@ -6,4 +6,3 @@
         dest: /etc/resolv.conf
         content: |
           nameserver {{ dns_server }}
-      backup: yes
