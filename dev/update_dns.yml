@@ -1,8 +1,9 @@
 - hosts: cluster
   become: true
   tasks:
-    - name: Configure resolv.conf
-      lineinfile:
-        path: /etc/resolv.conf
-        line: "nameserver {{ dns_server }}"
-        state: present
+    - name: Set dns server in Cluster Group
+      copy:
+        dest: /etc/resolv.conf
+        content: |
+          nameserver {{ dns_server }}
+      backup: yes
